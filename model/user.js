@@ -9,11 +9,12 @@ User.prototype.save = function (callback) {
         name:this.name,
         password: this.password
     };
-    var query = mysql.query('INSERT INTO users SET ?', post, function(err, result) {
-        if(err){
-            callback(err);
-        }
-        callback(err, result);
+    sqlFun.query('INSERT INTO user(name,pass) values ("'+this.name+'","'+this.password+'")',function(rows) {
+        console.log(rows);
+        debugger;
+        var row = rows ? rows.affectedRows: [];
+        var id= rows.insertId;
+        callback(row,id);
     });
 };
 
