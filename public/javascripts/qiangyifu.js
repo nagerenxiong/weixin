@@ -41,6 +41,9 @@ if (localStorage["shuaxin"] == "true") {
 	$("#start")[0].click();
 }
 
+setTimeout(function(){
+	window.location.reload();
+},1200000)
 
 function dy(timems) {
 	if (startFag) {
@@ -58,8 +61,7 @@ function dy(timems) {
 			} else if (i > arrayDom.length - 1) {
 				i = 0;
 			}
-			//var value = [2, 3, 4, 5, 6, 7, 8][Math.round(Math.random() * ([2, 3, 4, 5, 6, 7, 8].length - 1))];
-            var value=1;
+			var value = [2, 3, 4, 5, 6, 7, 8][Math.round(Math.random() * ([2, 3, 4, 5, 6, 7, 8].length - 1))];
 			if (localStorage["domArray"] == "true") {
 				if ($("#items tbody tr").eq(0).children('.availabilityColumn').hasClass('soldout') || $("#items tbody tr").eq(0).children('.availabilityColumn').hasClass('delayed')) {
 					$("#items tbody tr").eq(0).children('.qtyColumn').children('.dk_container').children('.dk_toggle').addClass('abcdedfdf');
